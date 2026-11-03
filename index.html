@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <title>幸福小黃搭乘偏好調查</title>
+</head>
+
+<body>
+  <p>正在為您分配問卷版本，請稍候...</p>
+
+  <script>
+    // 請替換成你自己的10個SurveyCake網址
+    const surveys = {
+      A: "https://www.surveycake.com/s/WqQay",
+      B: "https://www.surveycake.com/s/YXpny",
+      C: "https://www.surveycake.com/s/b6wRx",
+      D: "https://www.surveycake.com/s/L7oMd",
+      E: "https://www.surveycake.com/s/yQVL0",
+      F: "https://www.surveycake.com/s/Q4ZX6",
+      G: "https://www.surveycake.com/s/qoykw",
+      H: "https://www.surveycake.com/s/kr9dp",
+      I: "https://www.surveycake.com/s/MY2l3",
+      J: "https://www.surveycake.com/s/lKORO"
+    };
+
+    // 同一瀏覽器再次開啟時，維持相同版本
+    const storageKey = "drts_survey_version";
+    const versions = Object.keys(surveys);
+
+    let version = localStorage.getItem(storageKey);
+
+    if (!versions.includes(version)) {
+      const randomIndex =
+        Math.floor(Math.random() * versions.length);
+
+      version = versions[randomIndex];
+      localStorage.setItem(storageKey, version);
+    }
+
+    // 自動跳轉到對應問卷
+    window.location.replace(surveys[version]);
+  </script>
+</body>
+</html>
